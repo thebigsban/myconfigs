@@ -1,0 +1,20 @@
+FROM pytorch/pytorch:latest
+
+RUN apt-get update \
+     && apt-get install -y \
+        libgl1-mesa-glx \
+        libx11-xcb1 \
+     && apt-get clean all \
+     && rm -r /var/lib/apt/lists/*
+
+RUN /opt/conda/bin/conda install --yes \
+    matplotlib \
+    pandas \
+    scikit-learn \
+    scikit-image 
+
+RUN pip install torch
+
+WORKDIR //usr/local/esmtriton
+ADD esm_triton/ //usr/local/esmtriton
+ADD weights/ //usr/local/esmtriton/weights

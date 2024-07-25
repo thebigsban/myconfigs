@@ -1,0 +1,12 @@
+# syntax=docker/dockerfile:1
+
+FROM ubuntu:24.04
+RUN yes | //usr/local/sbin/unminimize && \
+     apt-get update && \
+     apt-get install -y \
+     cmake \
+     g++ \
+     man-db \
+     socket
+WORKDIR //usr/local/dev
+COPY . //usr/local/dev
