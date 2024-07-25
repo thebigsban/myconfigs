@@ -1,5 +1,7 @@
 # My Settings
 
+Configs and files for general development. 
+
 ## bashrc
 ```bash 
 ################# 
